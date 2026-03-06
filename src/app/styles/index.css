@@ -1,3 +1,37 @@
+@import 'tailwindcss';
+@import 'tw-animate-css';
+
+@custom-variant dark (&:is(.dark *));
+
+@theme inline {
+  /* Colors */
+  --color-primary: #222222;
+  --color-primary-white: #ffffff;
+  --color-primary-gray: #a3a3a3;
+
+  --color-secondary: #f34901;
+  --color-secondary-yellow: #f8df00;
+  --color-secondary-dark: #1c1c1c;
+
+  --color-neutral-100: #f8f8f8;
+  --color-neutral-200: #c4c4c4;
+  --color-neutral-300: #969696;
+
+  --color-danger: #f10000;
+  --color-success: #00ab1b;
+  --color-light: #fff5f5;
+
+  /* Typography */
+  --font-sans: 'Open Sans', sans-serif;
+
+  --text-h2: 2rem;
+  --text-h3: 1.5rem;
+  --text-h4: 1.25rem;
+  --text-body-big: 1.125rem;
+  --text-body: 1rem;
+  --text-body-small: 0.875rem;
+}
+
 * {
   margin: 0;
   padding: 0;
