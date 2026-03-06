@@ -1,6 +1,6 @@
 # 🎓 School Project — E-book (Vite + React + TypeScript)
 
-This is an educational project developed as part of a course. The main focus is practicing modern React development using TypeScript, Redux Toolkit, TailwindCSS, shadcn/ui, and clean component architecture.
+This is an educational project developed as part of a course. The main focus is practicing modern React development using TypeScript, Redux Toolkit, TailwindCSS, shadcn/ui, and Feature-Sliced Design architecture.
 
 ## 🚀 Tech Stack
 
@@ -10,7 +10,7 @@ This is an educational project developed as part of a course. The main focus is 
 - **React Router v6** — routing
 - **TailwindCSS** — utility-first styling
 - **shadcn/ui** — modern and customizable UI components
-- **Architecture**: Component-Based + Modular Folder Structure
+- **Architecture**: Feature-Sliced Design (FSD)
 
 ---
 
@@ -28,15 +28,11 @@ npm install
 npm run dev
 ```
 
+The app will be available at: `http://localhost:5173`
+
 ---
 
-## The app will be available at:
-
-`http://localhost:5173`
-
 ## 🏁 Production Build
-
-### To create a production-ready build:
 
 ```bash
 npm run build
@@ -44,9 +40,9 @@ npm run build
 
 The output will be generated in the `dist` folder — ready for deployment.
 
-## 🌿 Git Branching Convention
+---
 
-To maintain clean structure and teamwork efficiency, use the following branch naming rules:
+## 🌿 Git Branching Convention
 
 | Branch Type | Purpose                     | Example                  |
 | ----------- | --------------------------- | ------------------------ |
@@ -61,42 +57,52 @@ To maintain clean structure and teamwork efficiency, use the following branch na
 
 ---
 
-## 📂 Project Structure (Simplified)
+## 📂 Project Structure (FSD)
 
 ```
 src/
-├── api/ # Axios instances & API logic
-├── assets/ # Icons, images, fonts
-├── components/
-│ ├── ui/ # shadcn/ui components
-│ └── shared/ # Reusable components
-├── containers/ # Feature-level UI blocks / pages
-├── layout/ # Layout components (Header, Footer, etc.)
-├── store/ # Redux Toolkit: slices, store, types
-├── routes/ # Routing configuration
-├── utils/ # Helpers and constants
-├── index.css # TailwindCSS & global styles
-└── main.tsx # App entry point
+├── app/          # App entry, router, store, global styles
+├── pages/        # Page components
+├── widgets/      # Large UI blocks (Header, Layout, etc.)
+├── features/     # User interactions and business logic
+├── entities/     # Business entities (user, book, etc.)
+├── shared/       # Reusable code
+│   ├── ui/       # UI components (shadcn/ui)
+│   ├── assets/   # Icons, images
+│   ├── config/   # App configuration
+│   ├── constants/
+│   └── lib/
+│       └── hooks/
+└── vite-env.d.ts
 ```
 
 ---
 
 ## 🎨 UI Components (shadcn/ui + Tailwind)
 
-### The project uses:
+The project uses:
 
-shadcn/ui components
-
-TailwindCSS utility classes
-
-Customizable styles via CSS variables
+- shadcn/ui components
+- TailwindCSS utility classes
+- Customizable styles via CSS variables
 
 All UI elements are consistent, reusable, and follow modern design guidelines.
 
-## Style Guide
+---
 
-#### Linters
+## 🔧 Code Quality
 
-We are using Eslint and prettier linter tools to find bugs and errors before they happen. We'll spend less time testing new features and team's code will be more consistent. We are following [AirBnB JavaScript style guide](https://github.com/songhee24/VS-CODE__ReactJs-with-ESLint-Prettier-and-Airbnb)
+We use **ESLint** and **Prettier** to catch bugs early and keep code consistent across the team.
+
+- ESLint with [Airbnb style guide](https://github.com/airbnb/javascript)
+- Prettier for code formatting
+- TypeScript strict mode
+
+```bash
+npm run lint        # check for errors
+npm run lint:fix    # auto-fix errors
+```
+
+---
 
 ## ✍️ Authors
