@@ -3,7 +3,7 @@ import { forwardRef, type InputHTMLAttributes, useState } from 'react';
 import { Eye, EyeOff, Search, ChevronRight } from 'lucide-react';
 import { cn } from '../lib/utils';
 
-const inputVariants = cva(
+export const inputVariants = cva(
   'flex w-full bg-transparent font-sans text-body text-primary transition-colors placeholder:text-neutral-300 disabled:pointer-events-none disabled:opacity-50 border border-neutral-200 px-4 py-[10px] focus:outline-none',
   {
     variants: {
@@ -26,7 +26,7 @@ export interface InputProps
   required?: boolean;
 }
 
-const Input = forwardRef<HTMLInputElement, InputProps>(
+export const Input = forwardRef<HTMLInputElement, InputProps>(
   ({ className, variant, label, required, placeholder, ...props }, ref) => {
     const [isFocused, setIsFocused] = useState(false);
     const [showPassword, setShowPassword] = useState(false);
@@ -90,5 +90,3 @@ const Input = forwardRef<HTMLInputElement, InputProps>(
 );
 
 Input.displayName = 'Input';
-
-export { Input, inputVariants };
