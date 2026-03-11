@@ -3,6 +3,7 @@ import { zodResolver } from '@hookform/resolvers/zod';
 import { signUpClientSchema, type SignUpClientSchema } from '../../../shared/lib/validations/auth';
 import { Input } from '../../../shared/ui/Input';
 import { Button } from '../../../shared/ui/Button';
+import { Checkbox } from '../../../shared/ui/Checkbox';
 
 interface SignUpClientProps {
   onSwitchToVendor: () => void;
@@ -87,10 +88,10 @@ const SignUpUser = ({ onSwitchToVendor }: SignUpClientProps) => {
         )}
       </div>
 
-      <label className="flex items-center gap-2 text-body-small text-neutral-300 cursor-pointer">
-        <input type="checkbox" {...register('subscribe')} />
-        Подпишитесь на рассылку, чтобы получать новости от eBook
-      </label>
+      <Checkbox
+        {...register('subscribe')}
+        label="Подпишитесь на рассылку, чтобы получать новости от eBook"
+      />
 
       <Button variant="primary" size="full" type="submit" className="mt-2 mb-2">
         Создать аккаунт

@@ -1,5 +1,5 @@
 import './styles/App.css';
 
-const App = () => <h1>E-book</h1>;
+const App = () => <h1>Ebook</h1>;
 
 export default App;

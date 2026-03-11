@@ -12,7 +12,7 @@ const tabs = [
   { value: 'signup', label: 'Регистрация' }
 ];
 
-const AuthPage = () => {
+const Auth = () => {
   const [activeTab, setActiveTab] = useState<Tab>('signin');
 
   return (
@@ -36,4 +36,4 @@ const AuthPage = () => {
   );
 };
 
-export default AuthPage;
+export default Auth;
