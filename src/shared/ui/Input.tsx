@@ -46,7 +46,7 @@ export const Input = forwardRef<HTMLInputElement, InputProps>(
             error
               ? 'border-danger bg-danger/10'
               : isFocused
-                ? 'border-neutral-200'
+                ? 'border-secondary'
                 : 'border-neutral-200'
           )}
         >

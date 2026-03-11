@@ -9,12 +9,14 @@ import DownIcon from './svgs/down.svg';
 // Logo & Branding
 import LogoIcon from './svgs/logo.svg';
 import NewIcon from './svgs/new.svg';
+import MenuIcon from './svgs/menu.svg';
 
 // Auth & User
 import UserIcon from './svgs/user.svg';
 import UserFillIcon from './svgs/user-orange.svg';
 import ProfileIcon from './svgs/profile.svg';
 import ProfileFillIcon from './svgs/profile-fill.svg';
+import ProfileVendorIcon from './svgs/profile-vendor.svg';
 import EyeIcon from './svgs/eye.svg';
 import EyeCloseIcon from './svgs/eye-close.svg';
 import ExitIcon from './svgs/exit.svg';
@@ -41,6 +43,7 @@ import FavoriteIcon from './svgs/favorite.svg';
 import FavoriteFillIcon from './svgs/favorite-fill.svg';
 import NotificationIcon from './svgs/notification.svg';
 import NotificationFillIcon from './svgs/notification-fill.svg';
+import BellIcon from './svgs/bell.svg';
 
 // Info & Status
 import InfoIcon from './svgs/info.svg';
@@ -67,12 +70,14 @@ export {
   // Logo & Branding
   LogoIcon,
   NewIcon,
+  MenuIcon,
 
   // Auth & User
   UserIcon,
   UserFillIcon,
   ProfileIcon,
   ProfileFillIcon,
+  ProfileVendorIcon,
   EyeIcon,
   EyeCloseIcon,
   ExitIcon,
@@ -99,6 +104,7 @@ export {
   FavoriteFillIcon,
   NotificationIcon,
   NotificationFillIcon,
+  BellIcon,
 
   // Info & Status
   InfoIcon,
