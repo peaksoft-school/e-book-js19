@@ -1,5 +1,6 @@
+import AuthPage from '../pages/auth/ui/AuthPage';
 import './styles/App.css';
 
-const App = () => <h1>Ebook</h1>;
+const App = () => <AuthPage />;
 
 export default App;
