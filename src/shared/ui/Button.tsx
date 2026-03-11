@@ -9,7 +9,7 @@ export const buttonVariants = cva(
     variants: {
       variant: {
         primary:
-          'bg-primary text-primary-white px-[24px] py-[10px] hover:bg-[#fe6e34] cursor:pointer active:bg-secondary',
+          'bg-primary !text-primary-white px-[24px] py-[10px] hover:bg-[#484848] cursor:pointer active:bg-secondary',
         secondary:
           'bg-secondary text-primary-white px-[40px] py-[8px] hover:bg-secondary/90 active:bg-secondary',
         outline:
