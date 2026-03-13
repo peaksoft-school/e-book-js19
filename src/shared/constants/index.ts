@@ -5,6 +5,19 @@ import BookHistory220Image from '../assets/images/book-history220.png';
 import PofigizmImage from '../assets/images/pofigizm.png';
 import WomenPlanImage from '../assets/images/women-plan.png';
 
+interface CategoryBook {
+  title: string;
+  description: string;
+  price: number;
+  image: string;
+}
+
+interface Category {
+  id: number;
+  name: string;
+  book: CategoryBook;
+}
+
 export const SLIDER_BOOKS = [
   {
     id: 1,
@@ -90,5 +103,74 @@ export const BOOKS = [
     description:
       'История книги охватывает развитие от глиняных табличек и папирусных свитков до рукописных пергаментов, печатных изданий и электронных форматов. Эволюция книг направлена на улучшение хранения информации, мобильность и снижение стоимости производства. Описание книги (аннотация) включает тему, отличительные особенности и время издания',
     price: 450
+  }
+];
+
+export const LAST_PUBLICATIONS_BOOKS: Category[] = [
+  {
+    id: 1,
+    name: 'Бизнес-литература',
+    book: {
+      title: 'ИСТОРИЯ КНИГИ',
+      description:
+        'Предлагаемый перевод является первой попыткой обращения к творчеству Павла Орозия — римского христианского историка начала V века, сподвижника и современника знаменитого Августина Блаженн...',
+      price: 456,
+      image: BookHistoryImage
+    }
+  },
+  {
+    id: 2,
+    name: 'Детские книги',
+    book: {
+      title: 'ГАРРИ ПОТТЕР',
+      description:
+        'Гарри Поттер и его друзья возвращаются в Хогвартс, где таинственные события угрожают школе волшебства и всему магическому миру...',
+      price: 450,
+      image: HarryPotterImage
+    }
+  },
+  {
+    id: 3,
+    name: 'Хобби и досуг',
+    book: {
+      title: 'ЗЕМЛЯ ОБЕТОВАННАЯ',
+      description:
+        'Роман о людях, потерявших всё и ищущих новый смысл жизни в послевоенное время. История о любви, потерях и надежде...',
+      price: 350,
+      image: RemarkImage
+    }
+  },
+  {
+    id: 4,
+    name: 'Публицистика',
+    book: {
+      title: 'ИСТОРИЯ КНИГИ',
+      description:
+        'Предлагаемый перевод является первой попыткой обращения к творчеству Павла Орозия — римского христианского историка начала V века...',
+      price: 456,
+      image: BookHistoryImage
+    }
+  },
+  {
+    id: 5,
+    name: 'Учебная литература',
+    book: {
+      title: 'ГАРРИ ПОТТЕР',
+      description:
+        'Гарри Поттер и его друзья возвращаются в Хогвартс, где таинственные события угрожают школе волшебства...',
+      price: 450,
+      image: HarryPotterImage
+    }
+  },
+  {
+    id: 6,
+    name: 'Поэзия',
+    book: {
+      title: 'ЗЕМЛЯ ОБЕТОВАННАЯ',
+      description:
+        'Роман о людях, потерявших всё и ищущих новый смысл жизни в послевоенное время...',
+      price: 350,
+      image: RemarkImage
+    }
   }
 ];

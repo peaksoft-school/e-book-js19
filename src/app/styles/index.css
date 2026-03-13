@@ -45,3 +45,19 @@
     padding: 0;
   }
 }
+
+@keyframes sway {
+  0% {
+    transform: rotate(-8deg);
+  }
+  50% {
+    transform: rotate(8deg);
+  }
+  100% {
+    transform: rotate(-8deg);
+  }
+}
+
+.book-sway {
+  animation: sway 3s ease-in-out infinite;
+}
