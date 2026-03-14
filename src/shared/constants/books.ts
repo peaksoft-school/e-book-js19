@@ -4,6 +4,9 @@ import BookHistoryImage from '../assets/images/book-history.png';
 import BookHistory220Image from '../assets/images/book-history220.png';
 import PofigizmImage from '../assets/images/pofigizm.png';
 import WomenPlanImage from '../assets/images/women-plan.png';
+import NiSyImage from '../assets/images/nisy.png';
+import GreenLightImage from '../assets/images/green-light.png';
+import EmpireOfTheMilkyWayImage from '../assets/images/empire-of-the-milky-way.png';
 
 interface CategoryBook {
   title: string;
@@ -172,5 +175,35 @@ export const LAST_PUBLICATIONS_BOOKS: Category[] = [
       price: 350,
       image: RemarkImage
     }
+  }
+];
+
+export const AUDIO_BOOKS = [
+  {
+    id: 1,
+    image: NiSyImage,
+    title: 'НИ СЫ',
+    author: 'Джен Синсеро',
+    duration: '19 ч. 44 мин. 19 сек.',
+    price: 234,
+    new: false
+  },
+  {
+    id: 2,
+    image: GreenLightImage,
+    title: 'Зеленый свет',
+    author: 'Мэттью Макконахи',
+    duration: '19 ч. 44 мин. 19 сек.',
+    price: 234,
+    new: true
+  },
+  {
+    id: 3,
+    image: EmpireOfTheMilkyWayImage,
+    title: 'Империя Млечного пути',
+    author: 'Книга 3. Пилигрим.',
+    duration: '19 ч. 44 мин. 19 сек.',
+    price: 234,
+    new: false
   }
 ];

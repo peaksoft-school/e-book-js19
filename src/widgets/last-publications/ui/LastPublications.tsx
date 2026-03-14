@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { LAST_PUBLICATIONS_BOOKS } from '../../../shared/constants';
+import { LAST_PUBLICATIONS_BOOKS } from '../../../shared/constants/books';
 import BorderBookImage from '../../../shared/assets/images/border-book.png';
 
 interface LastPublicationsProps {

@@ -3,7 +3,7 @@ import Autoplay from 'embla-carousel-autoplay';
 import { useCallback, useEffect, useState } from 'react';
 import { ArrLeftIcon, ArrRightIcon } from '../assets/icons';
 import BackgroundSliderImage from '../assets/images/background-slider.png';
-import { SLIDER_BOOKS } from '../constants';
+import { SLIDER_BOOKS } from '../constants/books';
 
 const BookSlider = () => {
   const [emblaRef, emblaApi] = useEmblaCarousel(
