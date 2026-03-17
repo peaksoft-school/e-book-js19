@@ -52,7 +52,7 @@ const BookSectionSlider = ({ title, books, onViewAll }: BookSectionSliderProps) 
         <button
           type="button"
           onClick={onViewAll}
-          className="text-body text-secondary underline hover:opacity-70 transition-opacity"
+          className="text-body text-secondary underline hover:opacity-70 transition-opacity pr-20"
         >
           Смотреть все
         </button>

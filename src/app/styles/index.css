@@ -5,6 +5,13 @@
 
 @custom-variant dark (&:is(.dark *));
 
+@font-face {
+  font-family: 'VKHuteType';
+  src: url('../../shared/assets/fonts/vkhutetype-regular.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+}
+
 @theme inline {
   /* Colors */
   --color-primary: #222222;
@@ -25,6 +32,7 @@
 
   /* Typography */
   --font-sans: 'Open Sans', sans-serif;
+  --font-vkhute: 'VKHuteType', sans-serif;
 
   --text-h2: 2rem;
   --text-h3: 1.5rem;

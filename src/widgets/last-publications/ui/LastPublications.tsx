@@ -1,16 +1,29 @@
 import { useState } from 'react';
-import { LAST_PUBLICATIONS_BOOKS } from '../../../shared/constants/books';
 import BorderBookImage from '../../../shared/assets/images/border-book.png';
 
+interface Book {
+  title: string;
+  description: string;
+  price: number;
+  image: string;
+}
+
+interface Category {
+  id: number;
+  name: string;
+  book: Book;
+}
+
 interface LastPublicationsProps {
+  books: Category[];
   onViewAll?: () => void;
 }
 
-export const LastPublications = ({ onViewAll }: LastPublicationsProps) => {
-  const [activeId, setActiveId] = useState(LAST_PUBLICATIONS_BOOKS[5].id);
+export const LastPublications = ({ books, onViewAll }: LastPublicationsProps) => {
+  const [activeId, setActiveId] = useState(books[5].id);
   const [animating, setAnimating] = useState(false);
 
-  const activeCategory = LAST_PUBLICATIONS_BOOKS.find((c) => c.id === activeId)!;
+  const activeCategory = books.find((c) => c.id === activeId)!;
 
   const handleSelect = (id: number) => {
     if (id === activeId) return;
@@ -24,7 +37,7 @@ export const LastPublications = ({ onViewAll }: LastPublicationsProps) => {
   };
 
   return (
-    <div className="bg-primary px-20 py-16" style={{ minHeight: '600px' }}>
+    <div className="bg-primary px-20 py-37.5" style={{ minHeight: '600px' }}>
       <div className="flex items-center justify-between mb-12">
         <h2 className="text-h2 font-bold text-white">Последние публикации</h2>
 
@@ -39,7 +52,7 @@ export const LastPublications = ({ onViewAll }: LastPublicationsProps) => {
 
       <div className="flex items-center gap-16">
         <div className="flex flex-col gap-6 shrink-0 w-55">
-          {LAST_PUBLICATIONS_BOOKS.map((cat) => {
+          {books.map((cat) => {
             const isActive = cat.id === activeId;
 
             return (
@@ -67,13 +80,13 @@ export const LastPublications = ({ onViewAll }: LastPublicationsProps) => {
                 src={BorderBookImage}
                 alt="border"
                 className="absolute z-0"
-                style={{ width: '140%', height: '110%', top: '-5%', left: '-5%' }}
+                style={{ width: '140%', height: '110%', top: '-5%', left: '15%' }}
               />
 
               <img
                 src={activeCategory.book.image}
                 alt={activeCategory.book.title}
-                className={`relative z-10 w-85 h-125 left-3 object-cover shadow-2xl book-sway transition-all ${animating ? 'opacity-0 ' : 'opacity-100 scale-100'}`}
+                className={`relative z-10 w-85 h-125 left-21 object-cover shadow-2xl book-sway transition-all ${animating ? 'opacity-0 ' : 'opacity-100 scale-100'}`}
                 style={{
                   transition: 'transform 0.4s ease, opacity 0.4s ease, scale 0.4s ease'
                 }}
