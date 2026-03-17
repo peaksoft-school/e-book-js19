@@ -7,11 +7,11 @@ import {
   MenuIcon,
   ProfileIcon,
   ProfileVendorIcon
-} from '../../shared/assets/icons';
-import { Button } from '../../shared/ui/Button';
-import { Input } from '../../shared/ui/Input';
+} from '../../../shared/assets/icons';
+import { Button } from '../../../shared/ui/Button';
+import { Input } from '../../../shared/ui/Input';
 
-type HeaderVariant = 'user' | 'user-auth' | 'vendor' | 'vendor-auth' | 'admin';
+type HeaderVariant = 'user-auth' | 'user' | 'vendor' | 'vendor-auth' | 'admin';
 
 interface HeaderProps {
   variant?: HeaderVariant;
@@ -25,7 +25,7 @@ interface HeaderProps {
 }
 
 const Header = ({
-  variant = 'user',
+  variant = 'user-auth',
   userName,
   cartCount = 0,
   favoriteCount = 0,
@@ -37,7 +37,7 @@ const Header = ({
   return (
     <header className="bg-white w-full px-20">
       <div className="flex items-center pb-3 gap-10 justify-between">
-        <img src={LogoIcon} alt="logo" />
+        {variant !== 'admin' && <img src={LogoIcon} alt="logo" />}
 
         {variant !== 'vendor-auth' && (
           <div className="flex-1">

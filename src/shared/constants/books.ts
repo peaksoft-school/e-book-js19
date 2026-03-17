@@ -8,19 +8,6 @@ import NiSyImage from '../assets/images/nisy.png';
 import GreenLightImage from '../assets/images/green-light.png';
 import EmpireOfTheMilkyWayImage from '../assets/images/empire-of-the-milky-way.png';
 
-interface CategoryBook {
-  title: string;
-  description: string;
-  price: number;
-  image: string;
-}
-
-interface Category {
-  id: number;
-  name: string;
-  book: CategoryBook;
-}
-
 export const SLIDER_BOOKS = [
   {
     id: 1,
@@ -109,7 +96,7 @@ export const BOOKS = [
   }
 ];
 
-export const LAST_PUBLICATIONS_BOOKS: Category[] = [
+export const LAST_PUBLICATIONS_BOOKS = [
   {
     id: 1,
     name: 'Бизнес-литература',

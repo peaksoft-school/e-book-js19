@@ -1,5 +1,6 @@
+import { AppRoutes } from './router/AppRoutes';
 import './styles/App.css';
 
-const App = () => <h1>Ebook</h1>;
+const App = () => <AppRoutes />;
 
 export default App;
