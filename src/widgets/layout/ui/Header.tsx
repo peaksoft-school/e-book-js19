@@ -1,3 +1,4 @@
+import { useState } from 'react';
 import {
   BellIcon,
   DownIcon,
@@ -10,6 +11,7 @@ import {
 } from '../../../shared/assets/icons';
 import { Button } from '../../../shared/ui/Button';
 import { Input } from '../../../shared/ui/Input';
+import { GenreMenu } from '../../../shared/ui/GenreMenu';
 
 type HeaderVariant = 'user-auth' | 'user' | 'vendor' | 'vendor-auth' | 'admin';
 
@@ -34,6 +36,8 @@ const Header = ({
   onFavorite,
   onProfile
 }: HeaderProps) => {
+  const [showGenres, setShowGenres] = useState(false);
+
   return (
     <header className="bg-white w-full px-20">
       <div className="flex items-center pb-3 gap-10 justify-between">
@@ -105,12 +109,20 @@ const Header = ({
       {(variant === 'user' || variant === 'user-auth') && (
         <div className="flex items-center py-3 gap-8 justify-between">
           <div className="flex gap-25">
-            <button
-              type="button"
-              className="flex items-center gap-3.5 text-body text-primary cursor-pointer"
+            <div
+              className="relative"
+              onMouseEnter={() => setShowGenres(true)}
+              onMouseLeave={() => setShowGenres(false)}
             >
-              <img src={MenuIcon} alt="menu" /> Жанры
-            </button>
+              <button
+                type="button"
+                className="flex items-center gap-3.5 text-body text-primary cursor-pointer"
+              >
+                <img src={MenuIcon} alt="menu" /> Жанры
+              </button>
+
+              {showGenres && <GenreMenu />}
+            </div>
 
             <nav className="flex items-center gap-8">
               <a href="#" className="text-body text-primary hover:text-secondary transition-colors">

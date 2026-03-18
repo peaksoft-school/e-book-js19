@@ -4,6 +4,8 @@ import { signUpClientSchema, type SignUpClientSchema } from '../../../shared/lib
 import { Input } from '../../../shared/ui/Input';
 import { Button } from '../../../shared/ui/Button';
 import { Checkbox } from '../../../shared/ui/Checkbox';
+import { useSignUpMutation } from '../../../features/auth/api/authApi';
+import { Spinner } from '../../../shared/ui/Spinner';
 
 interface SignUpClientProps {
   onSwitchToVendor: () => void;
@@ -19,14 +21,23 @@ const SignUpUser = ({ onSwitchToVendor }: SignUpClientProps) => {
     mode: 'onChange'
   });
 
-  const onSubmit = (data: SignUpClientSchema) => {
-    console.log(data);
+  const [signUp, { isLoading }] = useSignUpMutation();
+
+  const onSubmit = async (data: SignUpClientSchema) => {
+    try {
+      const result = await signUp(data);
+
+      console.log(result);
+    } catch (error) {
+      console.error(error);
+    }
   };
 
   return (
     <form onSubmit={handleSubmit(onSubmit)} className="flex flex-col gap-0.5">
       <div className="flex flex-col gap-1">
         <Input
+          noFocusBorder
           label="Ваше имя"
           required
           placeholder="Напишите ваше имя"
@@ -43,6 +54,7 @@ const SignUpUser = ({ onSwitchToVendor }: SignUpClientProps) => {
 
       <div className="flex flex-col gap-1">
         <Input
+          noFocusBorder
           label="Email"
           required
           placeholder="Напишите ваш email"
@@ -58,6 +70,7 @@ const SignUpUser = ({ onSwitchToVendor }: SignUpClientProps) => {
 
       <div className="flex flex-col gap-1">
         <Input
+          noFocusBorder
           label="Пароль"
           required
           variant="password"
@@ -74,6 +87,7 @@ const SignUpUser = ({ onSwitchToVendor }: SignUpClientProps) => {
 
       <div className="flex flex-col gap-1">
         <Input
+          noFocusBorder
           label="Подтвердите пароль"
           required
           variant="password"
@@ -94,7 +108,7 @@ const SignUpUser = ({ onSwitchToVendor }: SignUpClientProps) => {
       />
 
       <Button variant="primary" size="full" type="submit" className="mt-2 mb-2">
-        Создать аккаунт
+        {isLoading ? <Spinner /> : 'Создать аккаунт'}
       </Button>
 
       <Button

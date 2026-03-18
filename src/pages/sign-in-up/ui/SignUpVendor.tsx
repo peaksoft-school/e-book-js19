@@ -30,6 +30,7 @@ const SignUpVendor = () => {
     <form onSubmit={handleSubmit(onSubmit)} className="flex flex-col">
       <div className="flex flex-col gap-0.5">
         <Input
+          noFocusBorder
           label="Ваше имя"
           required
           placeholder="Напишите ваше имя"
@@ -45,6 +46,7 @@ const SignUpVendor = () => {
 
       <div className="flex flex-col gap-0.5">
         <Input
+          noFocusBorder
           label="Ваша фамилия"
           required
           placeholder="Напишите вашу фамилию"
@@ -97,6 +99,7 @@ const SignUpVendor = () => {
 
       <div className="flex flex-col gap-0.5">
         <Input
+          noFocusBorder
           label="Email"
           required
           placeholder="Напишите ваш email"
@@ -112,6 +115,7 @@ const SignUpVendor = () => {
 
       <div className="flex flex-col gap-0.5">
         <Input
+          noFocusBorder
           label="Пароль"
           required
           variant="password"
@@ -128,6 +132,7 @@ const SignUpVendor = () => {
 
       <div className="flex flex-col gap-0.5">
         <Input
+          noFocusBorder
           label="Подтвердите пароль"
           required
           variant="password"

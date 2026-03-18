@@ -9,7 +9,7 @@ interface PrivateRouteProps {
 }
 
 export const PrivateRoute = ({ children, roles }: PrivateRouteProps) => {
-  const currentRole: Role = 'USER';
+  const currentRole: Role = 'GUEST';
 
   if (!roles.includes(currentRole)) {
     return <Navigate to="/auth" replace />;
