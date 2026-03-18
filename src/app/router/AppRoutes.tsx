@@ -18,7 +18,7 @@ export const AppRoutes = () => {
     {
       path: '/auth',
       Component: Auth,
-      HydrateFallback: () => <div>Загрузка...</div>
+      HydrateFallback: () => <div>Загрузка....</div>
     },
 
     {
