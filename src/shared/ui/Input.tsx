@@ -23,10 +23,24 @@ export interface InputProps
   required?: boolean;
   error?: boolean;
   type?: string;
+  noFocusBorder?: boolean;
 }
 
 export const Input = forwardRef<HTMLInputElement, InputProps>(
-  ({ className, variant, label, required, placeholder, error, type = 'text', ...props }, ref) => {
+  (
+    {
+      className,
+      variant,
+      label,
+      required,
+      placeholder,
+      error,
+      type = 'text',
+      noFocusBorder = false,
+      ...props
+    },
+    ref
+  ) => {
     const [isFocused, setIsFocused] = useState(false);
     const [showPassword, setShowPassword] = useState(false);
 
@@ -45,7 +59,7 @@ export const Input = forwardRef<HTMLInputElement, InputProps>(
             'relative flex items-center border transition-colors',
             error
               ? 'border-danger bg-danger/10'
-              : isFocused
+              : isFocused && !noFocusBorder
                 ? 'border-secondary'
                 : 'border-neutral-200'
           )}

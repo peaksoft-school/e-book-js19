@@ -1,9 +1,9 @@
 import { useNavigate } from 'react-router';
-import Header from '../../../../widgets/layout/ui/Header';
-import VendorBookImage from '../../../../shared/assets/images/vendor-book.png';
-import { Button } from '../../../../shared/ui/Button';
-import { LogoIcon } from '../../../../shared/assets/icons';
-import { STEPS } from '../../../../shared/constants/vendor';
+import { Header } from '../../../widgets/layout/ui/Header';
+import VendorBookImage from '../../../shared/assets/images/vendor-book.png';
+import { Button } from '../../../shared/ui/Button';
+import { LogoIcon } from '../../../shared/assets/icons';
+import { STEPS } from '../../../shared/constants/vendor';
 
 const VendorLanding = () => {
   const navigate = useNavigate();
@@ -24,7 +24,7 @@ const VendorLanding = () => {
           <Button
             className="bg-secondary-yellow text-primary text-body py-4 hover:opacity-90 transition-opacity w-56.25"
             type="button"
-            onClick={() => navigate('/auth')}
+            onClick={() => navigate('/auth', { state: { tab: 'vendor' } })}
           >
             Стать продавцом
           </Button>
@@ -60,7 +60,7 @@ const VendorLanding = () => {
       <section className="flex items-center justify-center py-16 bg-white">
         <Button
           type="button"
-          onClick={() => navigate('/auth')}
+          onClick={() => navigate('/auth', { state: { tab: 'vendor' } })}
           className="bg-secondary-yellow text-primary text-body py-4 hover:opacity-90 transition-opacity w-56.25"
         >
           Стать продавцом

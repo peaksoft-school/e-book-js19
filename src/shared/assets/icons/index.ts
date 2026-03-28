@@ -37,6 +37,7 @@ import EditIcon from './svgs/edit.svg';
 import DowloandIcon from './svgs/dowloand.svg';
 import IncrementIcon from './svgs/increase.svg';
 import DecrementIcon from './svgs/decrease.svg';
+import CheckIcon from './svgs/check.svg';
 
 // Favorites & Notifications
 import FavoriteIcon from './svgs/favorite.svg';
@@ -98,6 +99,7 @@ export {
   DowloandIcon,
   IncrementIcon,
   DecrementIcon,
+  CheckIcon,
 
   // Favorites & Notifications
   FavoriteIcon,

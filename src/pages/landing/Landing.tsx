@@ -7,11 +7,11 @@ import {
 } from '../../shared/constants/books';
 import { BookSectionSlider } from '../../shared/ui/BookSectionSlider';
 import { BookSlider } from '../../shared/ui/BooksSlider';
-import { AudioBooks } from '../../widgets/audio-books/ui/AudioBooks';
-import { LastPublications } from '../../widgets/last-publications/ui/LastPublications';
+import { LastPublications } from '../../widgets/landing/last-publications/LastPublications';
 import { Footer } from '../../widgets/layout/ui/Footer';
-import Header from '../../widgets/layout/ui/Header';
-import { NewsLetter } from '../../widgets/news-letter/ui/NewsLetter';
+import { Header } from '../../widgets/layout/ui/Header';
+import { NewsLetter } from '../../widgets/landing/news-letter/NewsLetter';
+import { AudioBooks } from '../../widgets/landing/audio-books/AudioBooks';
 
 const Landing = () => {
   const navigate = useNavigate();

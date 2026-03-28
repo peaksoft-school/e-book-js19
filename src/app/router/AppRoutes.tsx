@@ -1,40 +1,51 @@
 import { createBrowserRouter, RouterProvider } from 'react-router';
 import { lazy } from 'react';
-import { PrivateRoute } from './PrivateRoute';
+import { ProtectedRoute } from './ProtectedRoute';
 import { AdminLayout } from '../../widgets/layout/admin/AdminLayout';
+import { adminRoutes } from './admin/adminRoutes';
 
-const Auth = lazy(() => import('../../pages/auth/ui/Auth'));
+const Auth = lazy(() => import('../../pages/auth/Auth'));
 const Landing = lazy(() => import('../../pages/landing/Landing'));
-const VendorLanding = lazy(() => import('../../pages/vendor/vendor-landing/ui/VendorLanding'));
+const VendorLanding = lazy(() => import('../../pages/vendor/vendor-landing/VendorLanding'));
 
-export const AppRoutes = () => {
-  const router = createBrowserRouter([
-    {
-      path: '/',
-      Component: Landing,
-      HydrateFallback: () => <div>Загрузка...</div>
-    },
+const router = createBrowserRouter([
+  {
+    path: '/',
+    element: (
+      <ProtectedRoute allowedRoles={['GUEST', 'USER']} fallbackPath="/admin">
+        <Landing />
+      </ProtectedRoute>
+    )
+  },
+  {
+    path: '/vendor',
+    element: (
+      <ProtectedRoute allowedRoles={['VENDOR']} fallbackPath="/auth">
+        <VendorLanding />
+      </ProtectedRoute>
+    )
+  },
+  {
+    path: '/admin',
+    element: (
+      <ProtectedRoute allowedRoles={['ADMIN']} fallbackPath="/auth">
+        <AdminLayout />
+      </ProtectedRoute>
+    ),
+    children: adminRoutes
+  },
+  {
+    path: '/auth',
+    element: (
+      <ProtectedRoute onlyGuest fallbackPath="/admin">
+        <Auth />
+      </ProtectedRoute>
+    )
+  },
+  {
+    path: '*',
+    element: <div>404 Not Found</div>
+  }
+]);
 
-    {
-      path: '/auth',
-      Component: Auth,
-      HydrateFallback: () => <div>Загрузка...</div>
-    },
-
-    {
-      path: '/admin',
-      element: (
-        <PrivateRoute roles={['ADMIN']}>
-          <AdminLayout />
-        </PrivateRoute>
-      )
-    },
-
-    {
-      path: 'user/vendor',
-      Component: VendorLanding
-    }
-  ]);
-
-  return <RouterProvider router={router} />;
-};
+export const AppRoutes = () => <RouterProvider router={router} />;
