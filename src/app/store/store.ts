@@ -10,8 +10,9 @@ import {
   REGISTER
 } from 'redux-persist';
 import storage from 'redux-persist/lib/storage';
+
 import { authApi } from '../../features/auth/api/authApi';
-import { authSlice } from '../../features/auth/model/AuthSlice';
+import { authSlice } from '../../features/auth/model/authSlice';
 
 const persistConfig = {
   key: 'root',
@@ -20,7 +21,7 @@ const persistConfig = {
 };
 
 const rootReducer = combineReducers({
-  [authSlice.name]: authSlice.reducer,
+  auth: authSlice.reducer,
   [authApi.reducerPath]: authApi.reducer
 });
 
@@ -33,9 +34,10 @@ export const store = configureStore({
       serializableCheck: {
         ignoredActions: [FLUSH, REHYDRATE, PAUSE, PERSIST, PURGE, REGISTER]
       }
-    }).concat(authApi.middleware as any)
+    }).concat(authApi.middleware)
 });
 
 export const persistor = persistStore(store);
+
 export type RootState = ReturnType<typeof store.getState>;
 export type AppDispatch = typeof store.dispatch;

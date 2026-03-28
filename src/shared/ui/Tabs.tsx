@@ -22,8 +22,8 @@ export const Tabs = ({ tabs, activeTab, onChange, className }: TabsProps) => (
         className={cn(
           'text-body-big font-sans pb-1 transition-colors cursor-pointer',
           activeTab === tab.value
-            ? 'text-primary font-bold border-b-2 border-primary'
-            : 'text-neutral-300 hover:text-primary'
+            ? 'text-secondary font-bold border-b-2 border-secondary'
+            : 'text-neutral-300 hover:text-secondary'
         )}
       >
         {tab.label}

@@ -8,16 +8,24 @@ interface LoginRequest {
 }
 
 interface RegisterRequest {
-  name: string;
+  firstName: string;
   email: string;
   password: string;
-  role?: 'user' | 'vendor';
+}
+
+interface RegisterVendorRequest {
+  firstName: string;
+  lastName: string;
+  email: string;
+  password: string;
+  phoneNumber: string;
 }
 
 interface AuthResponse {
   role: Role;
   email: string;
   token: string;
+  id: number;
 }
 
 export const authApi = createApi({
@@ -27,7 +35,7 @@ export const authApi = createApi({
   endpoints: (builder) => ({
     signIn: builder.mutation<AuthResponse, LoginRequest>({
       query: (credentials) => ({
-        url: '/auth/sign-in',
+        url: '/api/auth/sign-in',
         method: 'POST',
         body: credentials
       })
@@ -35,17 +43,28 @@ export const authApi = createApi({
 
     signUp: builder.mutation<AuthResponse, RegisterRequest>({
       query: (data) => ({
-        url: '/auth/sign-up',
+        url: '/api/auth/sign-up/user',
         method: 'POST',
         body: data
       })
     }),
 
-    authWithGoogle: builder.query<AuthResponse, void>({
-      query: () => ({ url: '/auth/google', method: 'POST' })
+    signUpVendor: builder.mutation<AuthResponse, RegisterVendorRequest>({
+      query: (data) => ({
+        url: '/api/auth/sign-up/vendor',
+        method: 'POST',
+        body: data
+      })
     }),
 
-    forgotPassword: builder.query({
+    authWithGoogle: builder.mutation<AuthResponse, void>({
+      query: () => ({
+        url: '/api/auth/google',
+        method: 'POST'
+      })
+    }),
+
+    forgotPassword: builder.mutation({
       query: (data) => ({
         url: '/api/auth/forgot-password',
         method: 'POST',
@@ -53,9 +72,9 @@ export const authApi = createApi({
       })
     }),
 
-    resetPassword: builder.query({
+    resetPassword: builder.mutation({
       query: (data) => ({
-        url: '/api/auth/forgot-password',
+        url: '/api/auth/reset-password',
         method: 'POST',
         body: data
       })
@@ -66,7 +85,8 @@ export const authApi = createApi({
 export const {
   useSignInMutation,
   useSignUpMutation,
-  useAuthWithGoogleQuery,
-  useForgotPasswordQuery,
-  useResetPasswordQuery
+  useSignUpVendorMutation,
+  useAuthWithGoogleMutation,
+  useForgotPasswordMutation,
+  useResetPasswordMutation
 } = authApi;

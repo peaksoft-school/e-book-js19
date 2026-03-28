@@ -1,9 +1,10 @@
 import { useState } from 'react';
-import SignIn from '../../sign-in-up/ui/SignIn';
-import SignUpVendor from '../../sign-in-up/ui/SignUpVendor';
-import { Tabs } from '../../../shared/ui/Tabs';
-import BackgroundImage from '../../../shared/assets/images/background.png';
-import SignUpUser from '../../sign-in-up/ui/SignUpUser';
+import SignIn from '../sign-in-up/ui/SignIn';
+import SignUpVendor from '../sign-in-up/ui/SignUpVendor';
+import { Tabs } from '../../shared/ui/Tabs';
+import BackgroundImage from '../../shared/assets/images/background.png';
+import SignUpUser from '../sign-in-up/ui/SignUpUser';
+import { useLocation } from 'react-router';
 
 type Tab = 'signin' | 'signup' | 'vendor';
 
@@ -13,7 +14,11 @@ const tabs = [
 ];
 
 const Auth = () => {
-  const [activeTab, setActiveTab] = useState<Tab>('signin');
+  const location = useLocation();
+
+  const initialTab = location.state?.tab ?? 'signin';
+
+  const [activeTab, setActiveTab] = useState(initialTab);
 
   return (
     <div

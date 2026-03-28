@@ -3,15 +3,15 @@ import { zodResolver } from '@hookform/resolvers/zod';
 import { signUpClientSchema, type SignUpClientSchema } from '../../../shared/lib/validations/auth';
 import { Input } from '../../../shared/ui/Input';
 import { Button } from '../../../shared/ui/Button';
-import { Checkbox } from '../../../shared/ui/Checkbox';
 import { useSignUpMutation } from '../../../features/auth/api/authApi';
 import { Spinner } from '../../../shared/ui/Spinner';
+import toast from 'react-hot-toast';
 
-interface SignUpClientProps {
+interface SignUpUserProps {
   onSwitchToVendor: () => void;
 }
 
-const SignUpUser = ({ onSwitchToVendor }: SignUpClientProps) => {
+const SignUpUser = ({ onSwitchToVendor }: SignUpUserProps) => {
   const {
     register,
     handleSubmit,
@@ -25,11 +25,17 @@ const SignUpUser = ({ onSwitchToVendor }: SignUpClientProps) => {
 
   const onSubmit = async (data: SignUpClientSchema) => {
     try {
-      const result = await signUp(data);
+      await signUp({
+        firstName: data.name,
+        email: data.email,
+        password: data.password
+      }).unwrap();
 
-      console.log(result);
+      toast.success('Аккаунт успешно создан!');
     } catch (error) {
-      console.error(error);
+      const err = error as { data?: { lastName?: string; password?: string } };
+
+      toast.error(err?.data?.password ?? 'Ошибка при регистрации');
     }
   };
 
@@ -101,11 +107,6 @@ const SignUpUser = ({ onSwitchToVendor }: SignUpClientProps) => {
           <span className="text-white text-body-small">.</span>
         )}
       </div>
-
-      <Checkbox
-        {...register('subscribe')}
-        label="Подпишитесь на рассылку, чтобы получать новости от eBook"
-      />
 
       <Button variant="primary" size="full" type="submit" className="mt-2 mb-2">
         {isLoading ? <Spinner /> : 'Создать аккаунт'}

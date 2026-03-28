@@ -5,6 +5,10 @@ import { Input } from '../../../shared/ui/Input';
 import { Button } from '../../../shared/ui/Button';
 import { useSignInMutation } from '../../../features/auth/api/authApi';
 import { Spinner } from '../../../shared/ui/Spinner';
+import toast from 'react-hot-toast';
+import { useNavigate } from 'react-router';
+import { useAppDispatch } from '../../../shared/lib/hooks/hooks';
+import { setCredentials } from '../../../features/auth/model/authSlice';
 
 const SignIn = () => {
   const {
@@ -18,13 +22,27 @@ const SignIn = () => {
 
   const [signIn, { isLoading }] = useSignInMutation();
 
+  const navigate = useNavigate();
+  const dispatch = useAppDispatch();
+
   const onSubmit = async (data: SignInSchema) => {
     try {
-      const result = await signIn(data);
+      const { role, id, token } = await signIn(data).unwrap();
 
-      console.log(result);
+      dispatch(
+        setCredentials({
+          role,
+          id,
+          token
+        })
+      );
+
+      toast.success('Вы успешно вошли в аккаунт!');
+
+      navigate('/');
     } catch (error) {
-      console.error(error);
+      const err = error as { data?: { message?: string } };
+      toast.error(err?.data?.message ?? 'Ошибка при входе');
     }
   };
 

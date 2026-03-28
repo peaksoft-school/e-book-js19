@@ -18,9 +18,7 @@ export const DropdownMenu = ({ items }: DropdownMenuProps) => {
 
   useEffect(() => {
     const handleClickOutside = (e: MouseEvent) => {
-      if (ref.current && !ref.current.contains(e.target as Node)) {
-        setIsOpen(false);
-      }
+      if (ref.current && !ref.current.contains(e.target as Node)) setIsOpen(false);
     };
 
     document.addEventListener('mousedown', handleClickOutside);
@@ -29,7 +27,7 @@ export const DropdownMenu = ({ items }: DropdownMenuProps) => {
   }, []);
 
   return (
-    <div ref={ref} className="relative">
+    <div ref={ref} className="relative" onClick={(e) => e.stopPropagation()}>
       <button
         type="button"
         onClick={() => setIsOpen(!isOpen)}
@@ -48,7 +46,7 @@ export const DropdownMenu = ({ items }: DropdownMenuProps) => {
                 item.onClick();
                 setIsOpen(false);
               }}
-              className={`w-full text-left px-4 py-2.5 text-body-small transition-colors hover:bg-neutral-100 ${
+              className={`w-full text-left px-4 py-2.5 text-body-small transition-colors hover:bg-neutral-100  cursor-pointer ${
                 item.danger ? 'text-danger' : 'text-primary'
               }`}
             >

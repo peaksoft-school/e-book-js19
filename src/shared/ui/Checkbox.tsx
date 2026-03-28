@@ -27,7 +27,7 @@ export const Checkbox = forwardRef<HTMLInputElement, CheckboxProps>(
         />
       </div>
 
-      {label && <span className="text-body-small text-[#777777]">{label}</span>}
+      {label && <span>{label}</span>}
     </label>
   )
 );

@@ -3,35 +3,32 @@ import { ROLES, type Role } from './types';
 
 interface AuthState {
   role: Role;
-  email: string | null;
+  id: number | null;
   token: string | null;
   isAuth: boolean;
 }
 
 const initialState: AuthState = {
   role: ROLES.GUEST,
-  email: null,
   token: null,
-  isAuth: false
+  isAuth: false,
+  id: null
 };
 
 export const authSlice = createSlice({
   name: 'auth',
   initialState,
   reducers: {
-    setCredentials: (
-      state,
-      action: PayloadAction<{ role: Role; email: string; token: string }>
-    ) => {
+    setCredentials: (state, action: PayloadAction<{ role: Role; id: number; token: string }>) => {
       state.role = action.payload.role;
-      state.email = action.payload.email;
+      state.id = action.payload.id;
       state.token = action.payload.token;
-
       state.isAuth = true;
     },
+
     logout: (state) => {
       state.role = ROLES.GUEST;
-      state.email = null;
+      state.id = null;
       state.token = null;
       state.isAuth = false;
     }

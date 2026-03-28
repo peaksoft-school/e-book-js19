@@ -7,20 +7,22 @@ export const Sidebar = () => (
     <img src={LogoIcon} alt="logo" width={147} className="text-center mx-auto" />
 
     <nav className="flex flex-col mt-2">
-      {ADMIN_LINKS.map(({ to, label, icon: Icon, end }) => (
+      {ADMIN_LINKS.map(({ to, label, icon, activeIcon }) => (
         <NavLink
           key={to}
           to={to}
-          end={end}
           className={({ isActive }) =>
             `flex items-center gap-3 px-6 py-4 text-body transition-colors ${
               isActive ? 'bg-white text-secondary font-semibold' : 'text-white hover:bg-white/10'
             }`
           }
         >
-          <img src={Icon} width={20} />
-
-          {label}
+          {({ isActive }) => (
+            <>
+              <img src={isActive ? activeIcon : icon} width={20} />
+              {label}
+            </>
+          )}
         </NavLink>
       ))}
     </nav>

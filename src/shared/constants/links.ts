@@ -1,8 +1,37 @@
-import { ApplicationOrangeIcon, BooksIcon, UserIcon, VendorIcon } from '../../shared/assets/icons';
+import {
+  ApplicationOrangeIcon,
+  ApplicationIcon,
+  BooksIcon,
+  UserIcon,
+  UserFillIcon,
+  VendorIcon,
+  VendorFillIcon,
+  BooksOrangeIcon
+} from '../../shared/assets/icons';
 
 export const ADMIN_LINKS = [
-  { to: '/admin', label: 'Заявки', icon: ApplicationOrangeIcon, end: true },
-  { to: '/admin/vendors', label: 'Продавцы', icon: VendorIcon },
-  { to: '/admin/users', label: 'Пользователи', icon: UserIcon },
-  { to: '/admin/books', label: 'Книги', icon: BooksIcon }
+  {
+    to: '/admin/announcements',
+    label: 'Заявки',
+    icon: ApplicationIcon,
+    activeIcon: ApplicationOrangeIcon
+  },
+  {
+    to: '/admin/vendors',
+    label: 'Продавцы',
+    icon: VendorIcon,
+    activeIcon: VendorFillIcon
+  },
+  {
+    to: '/admin/users',
+    label: 'Пользователи',
+    icon: UserIcon,
+    activeIcon: UserFillIcon
+  },
+  {
+    to: '/admin/books',
+    label: 'Книги',
+    icon: BooksIcon,
+    activeIcon: BooksOrangeIcon
+  }
 ];
