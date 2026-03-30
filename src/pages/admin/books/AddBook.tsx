@@ -1,5 +1,4 @@
 import { useState } from 'react';
-import { useNavigate } from 'react-router';
 import { Breadcrumbs } from '../../../shared/ui/Breadcrumbs';
 import { Button } from '../../../shared/ui/Button';
 import { PhotoSlot } from '../../../widgets/book/PhotoSlot';
@@ -36,8 +35,6 @@ const selectClass =
 const labelClass = 'mb-1 block text-body text-primary';
 
 const AddBook = () => {
-  const navigate = useNavigate();
-
   const [bookType, setBookType] = useState<BookType>('physical');
   const [aboutCount, setAboutCount] = useState(0);
   const [fragmentCount, setFragmentCount] = useState(0);
